@@ -16,62 +16,76 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(5)->create();
+
+        \App\Models\Category::create([
+            'name' => 'Web Peograming',
+            'slug' => 'web-programing',
+            
+        ]);
+
+        \App\Models\Category::create([
+            'name' => 'Personal',
+            'slug' => 'personal',
+            
+        ]);
+
+        Post::factory(20)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
 
-        Post::create([
-            'name' => 'Adam',
-            'email' => 'adam555@gmail.com',
-            'password' => bcrypt('12345')
-        ]);
+        // User::create([
+        //     'name' => 'Adam',
+        //     'email' => 'adam555@gmail.com',
+        //     'password' => bcrypt('12345')
+        // ]);
 
-        Category::create([
-            'name' => 'Web Peograming',
-            'slug' => 'web-programing',
+        // Category::create([
+        //     'name' => 'Web Peograming',
+        //     'slug' => 'web-programing',
             
-        ]);
+        // ]);
 
-        Category::create([
-            'name' => 'Personal',
-            'slug' => 'personal',
+        // Category::create([
+        //     'name' => 'Personal',
+        //     'slug' => 'personal',
             
-        ]);
+        // ]);
 
-        Post::create([
-            'name' => 'Judul 1',
-            'slug' => 'judul-1',
-            'excerpt' => 'Lorem ipsum dolor sit amet consectetur',
-            'body' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur ullam nostrum, quisquam velit amet enim veritatis quo, ducimus delectus ea sequi deleniti sit?',
-            'category_id' => 1,
-            'category_id' => 1
-
-
-        ]);
-
-        Post::create([
-            'name' => 'Judul 2',
-            'slug' => 'judul-2',
-            'excerpt' => 'Lorem ipsum dolor sit amet consectetur',
-            'body' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur ullam nostrum, quisquam velit amet enim veritatis quo, ducimus delectus ea sequi deleniti sit?',
-            'category_id' => 1,
-            'category_id' => 1
+        // Post::create([
+        //     'name' => 'Judul 1',
+        //     'slug' => 'judul-1',
+        //     'excerpt' => 'Lorem ipsum dolor sit amet consectetur',
+        //     'body' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur ullam nostrum, quisquam velit amet enim veritatis quo, ducimus delectus ea sequi deleniti sit?',
+        //     'category_id' => 1,
+        //     'category_id' => 1
 
 
-        ]);
-        Post::create([
-            'name' => 'Judul 3',
-            'slug' => 'judul-3',
-            'excerpt' => 'Lorem ipsum dolor sit amet consectetur',
-            'body' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur ullam nostrum, quisquam velit amet enim veritatis quo, ducimus delectus ea sequi deleniti sit?',
-            'category_id' => 2,
-            'category_id' => 1
+        // ]);
+
+        // Post::create([
+        //     'name' => 'Judul 2',
+        //     'slug' => 'judul-2',
+        //     'excerpt' => 'Lorem ipsum dolor sit amet consectetur',
+        //     'body' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur ullam nostrum, quisquam velit amet enim veritatis quo, ducimus delectus ea sequi deleniti sit?',
+        //     'category_id' => 1,
+        //     'category_id' => 1
 
 
-        ]);
+        // ]);
+        // Post::create([
+        //     'name' => 'Judul 3',
+        //     'slug' => 'judul-3',
+        //     'excerpt' => 'Lorem ipsum dolor sit amet consectetur',
+        //     'body' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur ullam nostrum, quisquam velit amet enim veritatis quo, ducimus delectus ea sequi deleniti sit?',
+        //     'category_id' => 2,
+        //     'category_id' => 1
+
+
+        // ]);
     }
 }
 

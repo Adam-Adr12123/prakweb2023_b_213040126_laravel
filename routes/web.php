@@ -3,6 +3,7 @@
 use App\Http\Controllers\PostController;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Framework\Attributes\PostCondition;
 
@@ -52,4 +53,14 @@ Route::get('/categories/{Category:slug}', function(Category $category)
         'posts' => $category->posts,
         'category' => $category->name,
     ]);
+});
+
+
+Route::get('/authors/{author}',function(User $user){
+    return view('posts', [
+        'title' => 'User Posts',
+        'posts' => $user->posts
+        
+    ]);
+
 });
