@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\Framework\Attributes\PostCondition;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,19 +17,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Home');
+    return view('home', [
+        "title" => "home"
+    ]);
 });
 
 Route::get('/about', function () {
     return view('about', [
+        "title" => "about",
         "name" => "Adam",
         "email" => "Adam255@gmail.com",
-        "image" => "adr.png"
+        "image" => "adr.png",
+        
     ]);
 });
 
-
-Route::get('/blog', function () {
-    return view('posts');
-});
-
+Route::get('/blog', [PostController::class, 'index']);
+Route::get('posts/{slug}', [PostController::class, 'show']);
