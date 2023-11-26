@@ -4,20 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Category;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+
 
 class DashboardPostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return Post::where('user_id',auth()->user()->id)->get();
-        
-        
-        return view('dashboard.posts.idex',[
-            'posts'=> Post::where('user_id',auth()->user()->id)->get()
-        ]);
+      return view('dashboard.posts.index', [
+        'posts' => Post::where('user_id', auth()->user()->id)->get()
+      ]);
     }
 
     /**
@@ -25,7 +22,10 @@ class DashboardPostController extends Controller
      */
     public function create()
     {
-        //
+        
+            return view('dashboard.posts.create', [
+                'categories' => Category::all()
+            ]);
     }
 
     /**
@@ -33,7 +33,9 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //
+    
+        return $request;
     }
 
     /**
@@ -42,6 +44,10 @@ class DashboardPostController extends Controller
     public function show(Post $post)
     {
         //
+    
+      return view('dashboard.posts.show', [
+        'post' => $post
+      ]);
     }
 
     /**
@@ -67,4 +73,10 @@ class DashboardPostController extends Controller
     {
         //
     }
+
+    public function checkSlug(Request $request) {
+        $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
+    }
+
 }
